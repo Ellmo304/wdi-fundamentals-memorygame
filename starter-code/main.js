@@ -1,73 +1,66 @@
-var cardOne = document.getElementById("cardOne").onclick = function() {
-	document.getElementById("cardOne").innerHTML = '<img src="Users/Elliot/desktop/Memory_Game/Images/QOD.png" alt="Queen of Diamonds"/>';
+var cardOne = document.getElementById('cardOneDiv').onclick=function() {
+	document.getElementById('cardOneDiv').innerHTML = '<img src="Images/QOD.png"/>'
 }
 
-var cardTwo = document.getElementById("cardTwo").onclick = function() {
-	document.getElementById("cardTwo").innerHTML = '<img src="Users/Elliot/desktop/Memory_Game/Images/QOD.png" alt="Queen of Diamonds"/>';
+var cardTwo = document.getElementById("cardTwoDiv").onclick=function() {
+	document.getElementById("cardTwoDiv").innerHTML = '<img src="Images/QOD.png"/>'
 }
 
-var cardThree = document.getElementById("cardThree").onclick = function() {
-	document.getElementById("cardThree").innerHTML = '<img src="Users/Elliot/desktop/Memory_Game/Images/KOD.png" alt="King of Diamonds"/>';
+var cardThree = document.getElementById("cardThreeDiv").onclick=function() {
+	document.getElementById("cardThreeDiv").innerHTML = '<img src="Images/KOD.png"/>'
 }
 
-var cardFour = document.getElementById("cardFour").onclick = function() {
-	document.getElementById("cardFour").innerHTML = '<img src="Users/Elliot/desktop/Memory_Game/Images/KOD.png" alt="King of Diamonds"/>';
+var cardFour = document.getElementById("cardFourDiv").onclick=function() {
+	document.getElementById("cardFourDiv").innerHTML = '<img src="Images/KOD.png"/>'
 }
-
-
 
 var gameBoard = document.getElementById("game-board");
 
-var cards = ["queen", "queen", "king", "king"];
-
 var cardsInPlay = [];
 
-
-var isTwoCards = function() {
-	cardsInPlay.push(this.getAttribute("data-card"));
-  if (cardsInPlay.length === 2) {
-  	isMatch(cardsInPlay);
-  }
-  {cardsInPlay = [];
-}
-if (this.getAttribute('data-card') === "queen" || this.getAttribute('data-card') === "queen") {
-
-				this.innerHTML = ('<img src="Users/Elliot/desktop/Memory_Game/Images/QOD.png" alt="Queen of Diamonds"/>');
-
-			} else if (this.getAttribute("data-card") === "king" || this.getAttribute("data-card") === "king") {
-
-				this.innerHTML = ('<img src="Users/Elliot/desktop/Memory_Game/Images/KOD.png" alt="King of Diamonds"/>');
-			}
-
-		}
-};
-
+var cards = ["queen", "queen", "king", "king"];
 
 
 
 var createBoard = function() {
-
-for (var populate = 0; populate < cards.length; populate ++) {
+for (var i=0; i<cards.length; i++) {
 	var cardElement = document.createElement("div");
 	cardElement.className = ("card");
 	gameBoard.appendChild(cardElement);
-	{cardElement.setAttribute("data-card", cards[populate])};
-	cardElement.addEventListener("click", isTwoCards);
+
+	{cardElement.setAttribute('data-card', cards[i])};
+	cardElement.addEventListener('click', isTwoCards)
+	if ('data-card' === "queen") {
+
+				this.innerHTML = ('<img src="Images/QOD.png" alt="Queen of Diamonds"/>');
+
+			} else if ('data-card' === "king") {
+
+				this.innerHTML = ('<img src="Images/KOD.png" alt="King of Diamonds"/>');
+			};
 }
 };
 
 
+	createBoard();
 
-
-var isMatch = function() {
-	if (cards[0] === cards[1]) {
+var isMatch = function(cardsInPlay) {
+	if (cards[i] === cards[i]) {
 	alert("Well done, you found a match!");
 }
-else if (cards[2] === cards[3]) { 
+else if (cards[i] === cards[i]) { 
 	alert("Well done, you found a match!");
 } else  {
 	alert("Sorry, try again.");
 }
-	this.innerHTML = "none"; }
+	this.innerHTML = 'null'; 
+};
 
-createBoard();
+
+var isTwoCards=function() {
+	cardsInPlay.push(this.getAttribute('data-card'));
+  if (cardsInPlay.length === 2) {
+  	isMatch(cardsInPlay);
+  }
+  cardsInPlay = [];
+}
